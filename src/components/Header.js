@@ -91,7 +91,7 @@ const Header = () => {
             <div>Wed: 10am - 7pm</div>
             <div>Thurs: 10am - 6pm</div>
             <div>Fri: 10am - 6pm</div>
-            <div>Sat: 10am - 6pm</div>
+            <div>Sat: 10am - 5pm</div>
             <div>Sun: Closed</div>
           </div>
         </div>
