@@ -1,14 +1,18 @@
 .hero-section {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 100vh; /* full viewport height */
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: "Montserrat", sans-serif;
-  color: #e0d9ff;
+  color: #ffffff;
   text-align: center;
   overflow: hidden;
+  /* background-image is set inline in React */
+  background-repeat: no-repeat;
+  background-position: center 90% !important;
+  background-size: cover;
 }
 
 .overlay {
@@ -26,8 +30,9 @@
 }
 
 .hero-content h2 {
-  font-size: 3rem;
+  font-size: 4rem;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .hero-content p {

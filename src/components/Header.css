@@ -77,14 +77,13 @@
   object-fit: contain;
 }
 
-/* Slogan styles */
 .header-slogan {
-  display: inline-block; /* shrink width to text */
-  position: relative; /* for ::after positioning */
+  display: inline-block;
+  position: relative;
   align-self: center;
   text-align: center;
   margin: 0 auto;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 900;
   color: #5ec3bc;
   text-transform: uppercase;
@@ -93,8 +92,10 @@
   white-space: nowrap;
   font-family: "Montserrat", sans-serif;
   cursor: default;
-  /* Slightly stronger but still subtle glow */
-  text-shadow: 0 0 1px #5ec3bc, 0 0 3px #3bc8c8, 0 0 5px #3bc8c8;
+
+  /* Glow effect permanently like the hover state */
+  text-shadow: 0 0 4px #5ec3bc, 0 0 12px #3bc8c8;
+
   background: linear-gradient(
     270deg,
     #5ec3bc,
@@ -107,29 +108,26 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+
   animation: gradientShift 6s ease infinite;
   transition: transform 0.3s ease, text-shadow 0.3s ease;
 }
 
-.header-slogan:hover {
-  transform: scale(1.1);
-  text-shadow: 0 0 4px #5ec3bc, 0 0 12px #3bc8c8, 0 0 20px #3bc8c8,
-    0 0 30px #2fa7a7, 0 0 40px #2fa7a7;
-}
+/* Removed the :hover rule */
 
-.header-slogan::after {
+/* .header-slogan::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: -8px;
   height: 4px;
-  width: 100%; /* matches text width */
+  width: 100%; 
   background: linear-gradient(90deg, #3bc8c8, #5ec3bc, #3bc8c8);
   border-radius: 6px;
   animation: pulseUnderline 3.5s ease-in-out infinite;
   opacity: 0.8;
-}
-
+} 
+*/
 .header-submessage {
   font-size: 1.2rem;
   color: #ffffff;

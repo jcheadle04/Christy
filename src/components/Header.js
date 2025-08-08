@@ -99,7 +99,8 @@ const Header = () => {
 
       <div className="header-slogan">YES WE HAVE STRINGS!</div>
       <div className="header-submessage">
-        Visit us for ALL your musical needs!
+        A music store dedicated to serving <br /> musicians of ALL ages and
+        skill levels!
       </div>
 
       <nav>
