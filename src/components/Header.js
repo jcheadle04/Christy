@@ -98,6 +98,9 @@ const Header = () => {
       </div>
 
       <div className="header-slogan">YES WE HAVE STRINGS!</div>
+      <div className="header-submessage">
+        Visit us for ALL your musical needs!
+      </div>
 
       <nav>
         <div
