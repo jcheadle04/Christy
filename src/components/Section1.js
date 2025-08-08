@@ -22,13 +22,13 @@ const SectionOne = () => {
         {/* Hours and Contact Info */}
         <div className="info">
           <h3>Store Hours</h3>
-          <p>
-            Mon - Fri: 10am - 6pm
-            <br />
-            Sat: 10am - 5pm
-            <br />
-            Sun: Closed
-          </p>
+          <p>Mon: 10am - 6pm</p>
+          <p>Tues: 10am - 6pm</p>
+          <p>Wed: 10am - 7pm</p>
+          <p>Thurs: 10am - 6pm</p>
+          <p>Fri: 10am - 6pm</p>
+          <p>Sat: 10am - 5pm</p>
+          <p>Sun: Closed</p>
 
           <h3>Contact Us</h3>
           <p>
