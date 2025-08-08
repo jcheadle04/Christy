@@ -1,6 +1,9 @@
 import React from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import Section1 from "./components/Section1";
+import Footer from "./components/Footer";
+
 import "./App.css";
 
 function App() {
@@ -8,6 +11,8 @@ function App() {
     <div>
       <Header />
       <Hero />
+      <Section1 />
+      <Footer />
     </div>
   );
 }
