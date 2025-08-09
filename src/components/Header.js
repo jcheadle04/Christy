@@ -69,7 +69,7 @@ const Header = () => {
       <div className="header-top-row">
         <div className="location">
           2306 Front St STE 5, Slidell, LA
-          {!isMobile && <div className="phone-number">(985) 285-5514</div>}
+          {!isMobile && <div className="phone-number">(985) 288-0051</div>}
         </div>
 
         <div className="logo-title">
@@ -96,7 +96,7 @@ const Header = () => {
         skill levels!
       </div>
       {isMobile && (
-        <div className="phone-numberMobile">Call us at (985) 285-5514</div>
+        <div className="phone-numberMobile">Call us at (985) 288-0051</div>
       )}
 
       <nav>
