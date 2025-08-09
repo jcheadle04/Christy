@@ -413,3 +413,15 @@ nav {
     transform: scaleX(1.15);
   }
 }
+
+.phone-number {
+  color: #5ec3bc;
+  padding-top: 5px;
+  font-weight: bold;
+}
+
+.phone-numberMobile {
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-style: italic;
+}

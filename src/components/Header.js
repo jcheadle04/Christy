@@ -17,14 +17,12 @@ const Header = () => {
       }
     };
     window.addEventListener("resize", handleResize);
-
-    // Cleanup
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const toggleMenu = () => {
     setMenuOpen((prev) => !prev);
-    if (menuOpen) setOpenDropdown(null); // Close dropdowns when closing menu
+    if (menuOpen) setOpenDropdown(null);
   };
 
   const closeMenu = () => {
@@ -40,17 +38,9 @@ const Header = () => {
 
   const toggleDropdown = (name, e) => {
     e.preventDefault();
-
-    if (isMobile) {
-      // On mobile: toggle current dropdown only
-      setOpenDropdown((prev) => (prev === name ? null : name));
-    } else {
-      // On desktop: optional - open dropdown on click and close others
-      setOpenDropdown((prev) => (prev === name ? null : name));
-    }
+    setOpenDropdown((prev) => (prev === name ? null : name));
   };
 
-  // Close dropdown if clicking outside (optional, adds better UX)
   useEffect(() => {
     const handleClickOutside = (event) => {
       const nav = document.querySelector("nav");
@@ -77,7 +67,10 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-top-row">
-        <div className="location">2306 Front St STE 5, Slidell, LA</div>
+        <div className="location">
+          2306 Front St STE 5, Slidell, LA
+          {!isMobile && <div className="phone-number">(985) 285-5514</div>}
+        </div>
 
         <div className="logo-title">
           <img src={logo} alt="Logo" className="logo-image" />
@@ -102,6 +95,9 @@ const Header = () => {
         A music store dedicated to serving <br /> musicians of ALL ages and
         skill levels!
       </div>
+      {isMobile && (
+        <div className="phone-numberMobile">Call us at (985) 285-5514</div>
+      )}
 
       <nav>
         <div
