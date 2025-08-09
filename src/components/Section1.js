@@ -34,7 +34,7 @@ const SectionOne = () => {
           <p>
             2306 Front St STE 5, Slidell, LA
             <br />
-            Phone: (985) 641-6175
+            Phone: (985) 288-0051
             <br />
             Email: CLMSLIDELL@gmail.com
           </p>
