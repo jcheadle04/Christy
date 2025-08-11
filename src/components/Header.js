@@ -82,11 +82,6 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-top-row">
-        <div className="location">
-          2306 Front St STE 5, Slidell, LA
-          {!isMobile && <div className="phone-number">(985) 288-0051</div>}
-        </div>
-
         <div className="logo-title">
           <img src={logo} alt="Logo" className="logo-image" />
         </div>
