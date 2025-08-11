@@ -7,6 +7,7 @@ const Header = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
 
+  // Handle window resizing
   useEffect(() => {
     const handleResize = () => {
       const mobile = window.innerWidth <= 900;
@@ -20,9 +21,23 @@ const Header = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Helper for Enter/Space key activation
+  const handleKeyToggle = (callback) => (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      callback(e);
+    }
+    if (e.key === "Escape") {
+      setOpenDropdown(null);
+      if (isMobile) setMenuOpen(false);
+    }
+  };
+
   const toggleMenu = () => {
-    setMenuOpen((prev) => !prev);
-    if (menuOpen) setOpenDropdown(null);
+    setMenuOpen((prev) => {
+      if (prev) setOpenDropdown(null); // close dropdowns when closing menu
+      return !prev;
+    });
   };
 
   const closeMenu = () => {
@@ -41,10 +56,10 @@ const Header = () => {
     setOpenDropdown((prev) => (prev === name ? null : name));
   };
 
+  // Close dropdowns if clicking outside nav
   useEffect(() => {
     const handleClickOutside = (event) => {
-      const nav = document.querySelector("nav");
-      if (nav && !nav.contains(event.target)) {
+      if (!event.target.closest("nav")) {
         setOpenDropdown(null);
         if (isMobile) setMenuOpen(false);
       }
@@ -75,19 +90,6 @@ const Header = () => {
         <div className="logo-title">
           <img src={logo} alt="Logo" className="logo-image" />
         </div>
-
-        <div className="hours">
-          <div className="hours-title">Store Hours</div>
-          <div className="hours-list">
-            <div>Mon: 10am - 6pm</div>
-            <div>Tues: 10am - 6pm</div>
-            <div>Wed: 10am - 7pm</div>
-            <div>Thurs: 10am - 6pm</div>
-            <div>Fri: 10am - 6pm</div>
-            <div>Sat: 10am - 5pm</div>
-            <div>Sun: Closed</div>
-          </div>
-        </div>
       </div>
 
       <div className="header-slogan">YES WE HAVE STRINGS!</div>
@@ -100,21 +102,21 @@ const Header = () => {
       )}
 
       <nav>
+        {/* Hamburger */}
         <div
           className={`hamburger ${menuOpen ? "active" : ""}`}
           onClick={toggleMenu}
           role="button"
           aria-label="Toggle menu"
           tabIndex={0}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") toggleMenu();
-          }}
+          onKeyDown={handleKeyToggle(toggleMenu)}
         >
           <span></span>
           <span></span>
           <span></span>
         </div>
 
+        {/* Navigation Links */}
         <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
           <li>
             <a href="#" className="nav-link" onClick={scrollToTop}>
@@ -134,16 +136,9 @@ const Header = () => {
                 aria-expanded={openDropdown === category}
                 aria-haspopup="true"
                 tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    toggleDropdown(category, e);
-                  }
-                }}
+                onKeyDown={handleKeyToggle((e) => toggleDropdown(category, e))}
               >
                 {category}
-                <span className="arrow" aria-hidden="true">
-                  ▼
-                </span>
               </a>
               <ul className="dropdown-menu">
                 {items.map((item) => (

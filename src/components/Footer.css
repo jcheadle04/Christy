@@ -6,3 +6,15 @@
   font-family: "Montserrat", sans-serif;
   font-size: 0.9rem;
 }
+
+.back-to-top {
+  display: block;
+  margin-top: 10px;
+  color: #b884ff;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.back-to-top:hover {
+  text-decoration: underline;
+}
