@@ -8,6 +8,9 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Shirts from "./pages/Attire/Shirts";
 import Na from "./pages/Band/Na";
+import Acoustic from "./pages/Guitars/Acoustic";
+import Bass from "./pages/Guitars/Bass";
+import Electric from "./pages/Guitars/Electric";
 
 import "./App.css";
 
@@ -21,6 +24,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/shirts" element={<Shirts />} />
         <Route path="/na" element={<Na />} />
+        <Route path="/acoustic" element={<Acoustic />} />
+        <Route path="/electric" element={<Electric />} />
+        <Route path="/bass" element={<Bass />} />
       </Routes>
 
       {/* Section1 always at bottom above footer */}
