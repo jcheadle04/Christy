@@ -1,7 +1,7 @@
 .section-one {
   background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
   color: #e0e7e9;
-  padding: 40px 20px;
+  padding: 20px 15px; /* reduced padding */
   width: 100vw;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
@@ -10,18 +10,18 @@
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 900px; /* smaller max width */
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
-  justify-content: center; /* center content for better balance */
+  gap: 20px; /* smaller gap */
+  justify-content: center;
   align-items: flex-start;
 }
 
 .map-container {
-  width: 500px;
-  height: 300px;
+  width: 350px; /* smaller map */
+  height: 210px; /* smaller map */
   border-radius: 12px;
   overflow: hidden;
   flex: none;
@@ -34,30 +34,30 @@
 }
 
 .info {
-  flex: 1 1 320px;
-  min-width: 280px;
-  max-width: 450px;
-  padding-left: 10px;
+  flex: 1 1 250px; /* smaller minimum width */
+  min-width: 200px;
+  max-width: 350px;
+  padding-left: 8px;
 }
 
 .info h3 {
-  margin-top: 0; /* Remove default top margin */
-  margin-bottom: 12px; /* Control spacing after heading */
+  margin-top: 0;
+  margin-bottom: 10px;
   font-weight: 800;
   color: #5ec3bc;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-size: 1.4rem;
+  font-size: 1.2rem; /* smaller font */
   border-bottom: 2px solid #5ec3bc;
-  padding-bottom: 6px;
-  line-height: 1.6;
+  padding-bottom: 4px;
+  line-height: 1.4;
 }
 
 .info p {
-  margin-top: 0; /* Remove default top margin */
-  margin-bottom: 16px; /* Control spacing after paragraphs */
-  line-height: 1.5;
-  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  font-size: 1rem; /* slightly smaller */
   color: #c1dcdc;
   white-space: pre-line;
 }
@@ -70,14 +70,34 @@
   }
 
   .map-container {
-    width: 90vw;
-    max-width: 500px;
-    height: 280px;
+    width: 80vw;
+    max-width: 350px;
+    height: 200px;
   }
 
   .info {
-    max-width: 90vw;
+    max-width: 80vw;
     padding-left: 0;
     text-align: center;
   }
+}
+
+.section-title {
+  font-size: 1.4rem; /* smaller title */
+  font-weight: 700;
+  color: #5ec3bc;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #5ec3bc;
+  padding-bottom: 4px;
+  width: 90%;
+}
+
+.map-container-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  margin-bottom: 20px; /* smaller bottom margin */
 }

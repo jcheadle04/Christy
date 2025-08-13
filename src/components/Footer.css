@@ -19,3 +19,7 @@
   color: #715999;
   text-decoration: underline;
 }
+
+p {
+  padding-bottom: 5px;
+}

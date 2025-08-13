@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 import logo from "../assets/CC.png";
 
@@ -45,38 +46,15 @@ const Header = () => {
     setOpenDropdown(null);
   };
 
-  const scrollToTop = (e) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    closeMenu();
-  };
-
-  const toggleDropdown = (name, e) => {
-    e.preventDefault();
-    setOpenDropdown((prev) => (prev === name ? null : name));
-  };
-
-  // Close dropdowns if clicking outside nav
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (!event.target.closest("nav")) {
-        setOpenDropdown(null);
-        if (isMobile) setMenuOpen(false);
-      }
-    };
-    document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside);
-  }, [isMobile]);
-
   const dropdowns = {
     Guitars: ["Acoustic", "Electric", "Bass"],
-    Percussion: ["Drums", "Cymbals", "Tambourine"],
-    Band: ["Members", "Schedule"],
-    Sound: ["Mixing", "Equipment"],
-    Attire: ["Stage", "Casual"],
-    Rentals: ["Veritas", "Other"],
+    Percussion: ["Drums", "Cymbals"],
+    Band: ["Na"],
+    Sound: ["Equipment"],
+    Attire: ["Shirts"],
+    Rentals: ["Instrument Rentals"],
     Repairs: ["Info"],
-    Lessons: ["Bill", "Susan", "TBA"],
+    Lessons: ["All Lessons"],
   };
 
   return (
@@ -114,9 +92,9 @@ const Header = () => {
         {/* Navigation Links */}
         <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
           <li>
-            <a href="#" className="nav-link" onClick={scrollToTop}>
+            <Link to="/" className="nav-link" onClick={closeMenu}>
               Home
-            </a>
+            </Link>
           </li>
 
           {Object.entries(dropdowns).map(([category, items]) => (
@@ -127,20 +105,33 @@ const Header = () => {
               <a
                 href={`#${category}`}
                 className="nav-link dropdown-toggle"
-                onClick={(e) => toggleDropdown(category, e)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setOpenDropdown((prev) =>
+                    prev === category ? null : category
+                  );
+                }}
                 aria-expanded={openDropdown === category}
                 aria-haspopup="true"
                 tabIndex={0}
-                onKeyDown={handleKeyToggle((e) => toggleDropdown(category, e))}
+                onKeyDown={handleKeyToggle((e) => {
+                  e.preventDefault();
+                  setOpenDropdown((prev) =>
+                    prev === category ? null : category
+                  );
+                })}
               >
                 {category}
               </a>
               <ul className="dropdown-menu">
                 {items.map((item) => (
                   <li key={item}>
-                    <a href={`#${item}`} onClick={closeMenu}>
+                    <Link
+                      to={`/${item.toLowerCase().replace(/\s+/g, "")}`}
+                      onClick={closeMenu}
+                    >
                       {item}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
