@@ -20,6 +20,19 @@
   text-decoration: underline;
 }
 
+.home {
+  display: block;
+  margin-top: 10px;
+  color: #c39427;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.home:hover {
+  color: #715999;
+  text-decoration: underline;
+}
+
 p {
   padding-bottom: 5px;
 }
