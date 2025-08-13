@@ -1,6 +1,6 @@
 .footer {
-  background-color: #1f1f1f;
-  color: #ccc;
+  background-color: #161616;
+  color: #5ec3bc;
   text-align: center;
   padding: 15px 0;
   font-family: "Montserrat", sans-serif;
@@ -10,11 +10,12 @@
 .back-to-top {
   display: block;
   margin-top: 10px;
-  color: #b884ff;
+  color: #c39427;
   text-decoration: none;
   font-size: 0.9rem;
 }
 
 .back-to-top:hover {
+  color: #715999;
   text-decoration: underline;
 }
